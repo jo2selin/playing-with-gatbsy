@@ -1,0 +1,49 @@
+[
+  {
+    "title": "Découvrez la collection",
+    "subtitle": "Tradition",
+    "text": "Fabriqué au coeur des Alpes françaises depuis 1890, le couteau de poche Opinel puise dans ses racines montagnardes sa robustesse et sa simplicité Au fil du temps, le couteau pliant Opinel a été adopté dans le monde entier, il est aujourd'hui reconnu comme une icône du design. Objet mythique, transmis de génération en génération, il reste populaire et indispensable pour le petit bricolage, le camping ou les piques-niques dans la nature. La collection Tradition décline le couteau de poche de 1890 en différentes tailles, couleurs, et bois.",
+    "category": "tradition",
+    "layout": {
+      "background": {"color": "235, 236, 241", "position": "bottom right"},
+      "title": {"text":"daab8a", "background":"235, 236, 241"},
+      "subtitle": {"text":"000000", "background":"ffffff"}
+    }
+  },
+  {
+    "title": "Découvrez la collection",
+    "subtitle": "Luxe",
+    "text": "L'esthétique intemporelle du couteau de poche traditionnel est rehaussée par la noblesse de matériaux exceptionnels.     Le couteau luxe se décline ainsi en version chic avec les manches en corne ou en bois remarquables de par leur veinage, leur couleur et leur densité.",
+    "category": "luxury",
+    "layout": {
+      "background": {"color": "0, 0, 0", "position": "top right"},
+      "title": {"text":"ffffff", "background":"0,0,0"},
+      "subtitle": {"text":"000000", "background":"ffffff"}
+      
+    }
+  },
+  {
+    "title": "Découvrez la collection",
+    "subtitle": "Table",
+    "text": "Les gammes de couteaux de table et de couteaux à steak Opinel vous garantissent une coupe parfaite à table. La gamme Table Chic est idéale pour une table raffinée lors de vos réceptions, et la gamme Bon Appétit manche en bois comme la gamme Bon Appétit + manches en polymère vous accompagneront au quotidien. ",
+    "category": "table",
+    "layout": {
+      "background":  {"color": "215,211,208", "position": "bottom right"},
+      "title": {"text":"cdae44", "background":"215,211,208"},
+      "subtitle": {"text":"000000", "background":"ffffff"}
+      
+    }
+  },
+  {
+    "title": "Découvrez la collection",
+    "subtitle": "Multifonction",
+    "text": "Les couteaux multifonctions sont dédiés à des usages spécifiques tout en conservant l’ergonomie légendaire du traditionnel OPINEL: Explore n°12, Outdoor n°08, Bricolage n°09, Outdoor Junior n°07. Leurs manches en polymère haut de gamme assurent une haute résistance aux températures extrêmes et à l'humidité. Offrant des fonctionnalités très pratiques, les couteaux de poche multifonctions vous rendent de multiples services au quotidien.",
+    "category": "multifunction",
+    "layout": {
+      "background":  {"color": "211,217,217", "position": "bottom right"},
+      "title": {"text":"708c11", "background":"211,217,217"},
+      "subtitle": {"text":"000000", "background":"ffffff"}
+      
+    }
+  }
+  ]

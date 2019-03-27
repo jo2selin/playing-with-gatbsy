@@ -11,7 +11,7 @@ import { StaticQuery, graphql } from "gatsby"
 
 import Header from "./header"
 // import "./layout.css"
-import "bulma/css/bulma.css"
+import bulma from "bulma"
 
 const Layout = ({ children }) => (
   <StaticQuery
@@ -26,12 +26,13 @@ const Layout = ({ children }) => (
     `}
     render={data => (
       <>
+        <link
+          href="https://fonts.googleapis.com/css?family=Vollkorn:400,700"
+          rel="stylesheet"
+        />
         <Header siteTitle={data.site.siteMetadata.title} />
         <main>{children}</main>
-        <footer>
-          © {new Date().getFullYear()}, Built with
-          {` `}
-        </footer>
+        <footer />
       </>
     )}
   />

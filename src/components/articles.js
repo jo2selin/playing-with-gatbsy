@@ -1,5 +1,5 @@
 import React from "react"
-import Link from "gatsby"
+import { Link } from "gatsby"
 import Layout from "../components/layout"
 
 const Articles = ({ data }) => (
@@ -37,7 +37,7 @@ const Articles = ({ data }) => (
                     {article.node.frontmatter.date}
                   </time>
                   <Link to={article.node.frontmatter.path}>
-                    <button class="button is-primary is-fullwidth">
+                    <button className="button is-primary is-fullwidth">
                       See article
                     </button>
                   </Link>

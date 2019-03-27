@@ -3,21 +3,34 @@ const path = require("path")
 // Generating all Tags page
 const createTagsPage = (createPage, products) => {
   const tagIndexTemplate = path.resolve("src/templates/template-tag.js")
-  const allTags = {}
+  const allProducts = {}
 
   products.map(({ node }) => {
     if (node.frontmatter.tags) {
       node.frontmatter.tags.map(tag => {
-        if (!allTags[tag]) {
+        if (!allProducts[tag]) {
           // Unknow tag, creating new Tag array
-          allTags[tag] = []
+          allProducts[tag] = []
         }
         // push to corresponding Tag array
-        allTags[tag].push(node)
+        allProducts[tag].push(node)
       })
     }
   })
-  console.log(allTags)
+
+  // get Unique tags from Allproducts
+  const tags = Object.keys(allProducts)
+  tags.map((tag, index) => {
+    const products = allProducts[tag]
+    createPage({
+      path: `/tags/${tag}`,
+      component: tagIndexTemplate,
+      context: {
+        products,
+        tag,
+      },
+    })
+  })
 }
 
 // Generating Product Page
@@ -28,12 +41,13 @@ exports.createPages = ({ actions, graphql }) => {
   const postTemplate = path.resolve("src/templates/template-article.js")
 
   return graphql(`
-    {
-      allMarkdownRemark {
+    query frontmatterQuery {
+      getMarkdown: allMarkdownRemark {
         edges {
           node {
             html
             id
+            fileAbsolutePath
             frontmatter {
               title
               path
@@ -51,8 +65,9 @@ exports.createPages = ({ actions, graphql }) => {
     if (res.errors) {
       return Promise.reject(res.errors)
     }
-
-    const products = res.data.allMarkdownRemark.edges
+    // console.log("res")
+    // console.log(res.data.getMarkdown)
+    const products = res.data.getMarkdown.edges
 
     createTagsPage(createPage, products)
 

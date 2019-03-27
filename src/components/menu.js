@@ -4,7 +4,7 @@ import { Link } from "gatsby"
 const Menu = function menu() {
   return (
     <nav
-      className="navbar is-warning"
+      className="navbar is-primary"
       role="navigation"
       aria-label="main navigation"
     >
