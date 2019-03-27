@@ -1,8 +1,10 @@
 const path = require("path")
 
 // Generating all Tags page
-const createTagsPage = (createPage, products) => {
-  const tagIndexTemplate = path.resolve("src/templates/template-tag.js")
+const createListArticlesByTagPage = (createPage, products) => {
+  const tagIndexTemplate = path.resolve(
+    "src/templates/template-listArticlesByTag.js"
+  )
   const allProducts = {}
 
   products.map(({ node }) => {
@@ -69,7 +71,7 @@ exports.createPages = ({ actions, graphql }) => {
     // console.log(res.data.getMarkdown)
     const products = res.data.getMarkdown.edges
 
-    createTagsPage(createPage, products)
+    createListArticlesByTagPage(createPage, products)
 
     products.forEach(({ node }) => {
       createPage({

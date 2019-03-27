@@ -4,10 +4,9 @@ import Img from "gatsby-image"
 
 import tagsPageCss from "../components/cssComponents/tags.module.scss"
 
-const TagsComponent = function tagsComponent(data) {
+const ProductCardComponent = function(data) {
   const {
     category,
-    date,
     path,
     subtitle,
     tags,
@@ -16,8 +15,8 @@ const TagsComponent = function tagsComponent(data) {
     correspondingImages,
   } = data.props.article
 
-  console.log("TagsComponent")
-  console.log(data)
+  // console.log("TagsComponent")
+  // console.log(data)
 
   return (
     <div className="column is-one-third">
@@ -75,4 +74,4 @@ const TagsComponent = function tagsComponent(data) {
   )
 }
 
-export default TagsComponent
+export default ProductCardComponent

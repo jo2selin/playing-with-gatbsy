@@ -1,11 +1,9 @@
 import React from "react"
+
 import Layout from "../components/layout"
+import ProductCardComponent from "../components/productCard"
 
-// import Img from "gatsby-image"
-
-import TagsComponent from "../components/tags"
-
-const templateTag = ({ data, pageContext }) => {
+const templateListArticlesByTag = ({ data, pageContext }) => {
   const products = pageContext.products
 
   products.map(product => {
@@ -27,14 +25,14 @@ const templateTag = ({ data, pageContext }) => {
         {products.map((product, index) => {
           const article = product.frontmatter
 
-          return <TagsComponent key={index} props={{ article }} />
+          return <ProductCardComponent key={index} props={{ article }} />
         })}
       </div>
     </Layout>
   )
 }
 
-export default templateTag
+export default templateListArticlesByTag
 
 export const tagsImagesQuery = graphql`
   query tagsImagesQuery {
