@@ -30,7 +30,7 @@ const Layout = ({ children }) => (
           rel="stylesheet"
         />
         <Header siteTitle={data.site.siteMetadata.title} />
-        <main>{children}</main>
+        <main className="has-navbar-fixed-top">{children}</main>
         <footer />
       </>
     )}

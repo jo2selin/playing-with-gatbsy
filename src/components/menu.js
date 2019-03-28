@@ -18,14 +18,19 @@ const Menu = () => (
     render={data => (
       <>
         <nav
-          className="navbar is-secondary"
+          className="navbar is-fixed-top is-secondary"
           role="navigation"
           aria-label="main navigation"
         >
-          <Link to="/">
+          <Link to="/" style={{ margin: "auto" }}>
             <Img
-              sizes={data.file.childImageSharp.fixed}
-              style={{ width: "188px", height: "82px", margin: "auto" }}
+              fixed={data.file.childImageSharp.fixed}
+              style={{
+                width: "188px",
+                height: "82px",
+                margin: "auto",
+                display: "block",
+              }}
             />
           </Link>
         </nav>

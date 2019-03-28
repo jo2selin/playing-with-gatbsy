@@ -92,7 +92,7 @@ export const listHomeQuery = graphql`
 
     traditionImageQuery: file(relativePath: { eq: "tradition.jpg" }) {
       childImageSharp {
-        fluid(maxWidth: 640, maxHeight: 425) {
+        fluid {
           ...GatsbyImageSharpFluid
         }
       }

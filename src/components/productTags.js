@@ -4,7 +4,7 @@ import { Link } from "gatsby"
 const ProductTagsComponent = function(data) {
   const { category, type, tags } = data.props
   // console.log("TagsComponent")
-  console.log(data)
+  // console.log(data)
 
   return (
     <>
