@@ -1,14 +1,18 @@
 import React from "react"
 import { Link } from "gatsby"
-import Layout from "../components/layout"
 import Img from "gatsby-image"
+import { FaAmazon } from "react-icons/fa"
+
+import Layout from "../components/layout"
+import ProductTagsComponent from "../components/productTags"
 
 export default function Template({ data }) {
   const article = data.getArticle
-  const { title, subtitle, tags } = article.frontmatter
+  const { title, subtitle, category, type, tags, amazon } = article.frontmatter
 
   console.log("Article data")
   console.log(data)
+  console.log(amazon)
 
   // matching image article
   const allImages = data.getAllImages.sourceInstanceName
@@ -26,16 +30,37 @@ export default function Template({ data }) {
 
   return (
     <Layout>
-      <div className="columns">
-        <div className="column is-one-third">
-          <Img sizes={article.correspondingImages.childImageSharp.fluid} />
+      <section className="section">
+        <div className="columns">
+          <div className="column is-one-third">
+            <Img sizes={article.correspondingImages.childImageSharp.fluid} />
+          </div>
+          <div className="column">
+            <h1 className="title">{title}</h1>
+            <h2 className="subtitle">{subtitle}</h2>
+            <p dangerouslySetInnerHTML={{ __html: article.html }} />
+
+            {amazon && (
+              <>
+                <hr />
+                <a
+                  href={`https://amzn.to/${amazon}`}
+                  target="_blank"
+                  className="button"
+                  style={{ background: "#ff9900", borderColor: "#b36c01" }}
+                >
+                  <span className="icon">
+                    <FaAmazon />
+                  </span>
+                  <span>Acheter sur amazon</span>
+                </a>
+              </>
+            )}
+            <hr />
+            <ProductTagsComponent props={{ tags, category, type }} />
+          </div>
         </div>
-        <div className="column">
-          <h1 className="title">{title}</h1>
-          <h2 className="subtitle">{subtitle}</h2>
-          <p dangerouslySetInnerHTML={{ __html: article.html }} />
-        </div>
-      </div>
+      </section>
     </Layout>
   )
 }
@@ -52,6 +77,7 @@ export const articleQuery = graphql`
         type
         category
         tags
+        amazon
       }
     }
 

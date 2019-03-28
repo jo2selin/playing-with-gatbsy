@@ -9,7 +9,7 @@ const IndexSection = function indexsection(data) {
   const { section, index, categoryBackground, categoryImage } = data.props
   const { title, subtitle, text, category, layout } = section.node
 
-  console.log(section)
+  // console.log(section)
 
   return (
     <section

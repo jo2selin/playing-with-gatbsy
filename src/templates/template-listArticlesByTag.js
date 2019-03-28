@@ -6,6 +6,9 @@ import ProductCardComponent from "../components/productCard"
 const templateListArticlesByTag = ({ data, pageContext }) => {
   const products = pageContext.products
 
+  console.log(data)
+  console.log(pageContext)
+
   products.map(product => {
     const productPath = product.fileAbsolutePath.split("/").slice(-2, -1)[0]
 
@@ -21,13 +24,25 @@ const templateListArticlesByTag = ({ data, pageContext }) => {
 
   return (
     <Layout>
-      <div className="columns">
-        {products.map((product, index) => {
-          const article = product.frontmatter
+      <section className="section">
+        <div className="container">
+          <h1 className="title">
+            <div class="control">
+              <div class="tags has-addons">
+                <span class="tag  is-large is-dark">Tous les Opinels</span>
+                <span class="tag  is-large">{pageContext.tag}</span>
+              </div>
+            </div>
+          </h1>
+          <div className="columns">
+            {products.map((product, index) => {
+              const article = product.frontmatter
 
-          return <ProductCardComponent key={index} props={{ article }} />
-        })}
-      </div>
+              return <ProductCardComponent key={index} props={{ article }} />
+            })}
+          </div>
+        </div>
+      </section>
     </Layout>
   )
 }

@@ -58,6 +58,7 @@ exports.createPages = ({ actions, graphql }) => {
               type
               category
               tags
+              amazon
             }
           }
         }

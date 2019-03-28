@@ -23,9 +23,11 @@ const ProductCardComponent = function(data) {
     <div className="column is-one-third">
       <div className="card">
         <div className="card-image">
-          <figure className={`image is-4by3 ${tagsPageCss.is4by3}`}>
-            <Img sizes={correspondingImages.childImageSharp.fluid} />
-          </figure>
+          <Link to={path}>
+            <figure className={`image is-4by3 ${tagsPageCss.is4by3}`}>
+              <Img sizes={correspondingImages.childImageSharp.fluid} />
+            </figure>
+          </Link>
         </div>
         <div className="card-content">
           <Link to={path}>
