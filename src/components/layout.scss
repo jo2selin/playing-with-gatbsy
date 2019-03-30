@@ -1,0 +1,19 @@
+@import '~bulma/bulma.sass';
+
+// Style Opinel
+
+$secondary : rgb(238,238,238);
+
+body {
+  margin-top: 82px;
+}
+
+.is-secondary{
+    &.navbar{
+      background-color: $secondary;
+    }
+  }
+
+
+
+//  style Gats

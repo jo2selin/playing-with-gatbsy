@@ -10,7 +10,7 @@ import PropTypes from "prop-types"
 import { StaticQuery, graphql } from "gatsby"
 
 import Header from "./header"
-import bulma from "bulma"
+import "./layout.scss"
 
 const Layout = ({ children }) => (
   <StaticQuery
@@ -25,10 +25,6 @@ const Layout = ({ children }) => (
     `}
     render={data => (
       <>
-        <link
-          href="https://fonts.googleapis.com/css?family=Vollkorn:400,700"
-          rel="stylesheet"
-        />
         <Header siteTitle={data.site.siteMetadata.title} />
         <main className="has-navbar-fixed-top">{children}</main>
         <footer />

@@ -9,6 +9,17 @@ module.exports = {
     `gatsby-plugin-catch-links`,
     `gatsby-plugin-sass`,
     {
+      resolve: `gatsby-plugin-prefetch-google-fonts`,
+      options: {
+        fonts: [
+          {
+            family: `Vollkorn`,
+            variants: [`400`, `700`],
+          },
+        ],
+      },
+    },
+    {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `pages`,
