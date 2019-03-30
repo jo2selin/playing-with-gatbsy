@@ -8,6 +8,16 @@ body {
   margin-top: 82px;
 }
 
+.image.is-4by3{
+  padding-top: 25%;
+}
+
+.card-content{
+  section{
+    padding-bottom: 0px;
+  }
+}
+
 .is-secondary{
     &.navbar{
       background-color: $secondary;

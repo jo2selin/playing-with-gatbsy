@@ -1,7 +1,7 @@
 import React from "react"
 import { Link } from "gatsby"
 import Img from "gatsby-image"
-import VanillaTilt from "react-vanilla-tilt"
+import Tilt from "react-tilt"
 
 import homePageCss from "../components/cssComponents/homePage.module.scss"
 
@@ -23,13 +23,19 @@ const IndexSection = function indexsection(data) {
       }}
     >
       <div className="container">
-        <VanillaTilt
+        <Tilt
+          className="Tilt"
+          options={{ scale: 1.05, max: 25 }}
           style={{
             transform: "perspective(1000px)",
             transformStyle: "preserve-3d",
           }}
         >
-          <div className={"columns is-vcentered " + homePageCss.sectionColumns}>
+          <div
+            className={
+              "columns is-vcentered Tilt-inner " + homePageCss.sectionColumns
+            }
+          >
             <div
               className={
                 "column is-one-third " + homePageCss.sectionColumnImage
@@ -72,7 +78,7 @@ const IndexSection = function indexsection(data) {
               </Link>
             </div>
           </div>
-        </VanillaTilt>
+        </Tilt>
       </div>
     </section>
   )

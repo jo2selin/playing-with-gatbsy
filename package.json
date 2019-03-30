@@ -26,8 +26,7 @@
     "react-dom": "^16.8.4",
     "react-helmet": "^5.2.0",
     "react-icons": "^3.5.0",
-    "react-vanilla-tilt": "^1.0.0",
-    "vanilla-tilt": "^1.6.1"
+    "react-tilt": "^0.1.4"
   },
   "devDependencies": {
     "prettier": "^1.16.4"
