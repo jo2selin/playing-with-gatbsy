@@ -9,10 +9,10 @@ import IndexSection from "../components/indexSection"
 import traditionbackground from "../images/background/tradition.jpg"
 import luxuryBackground from "../images/background/luxury.jpg"
 import tableBackground from "../images/background/table.jpg"
-import multifunctionBackground from "../images/background/multifunction.jpg"
+import multifunctionBackground from "../images/background/multifonction.jpg"
 
 export default function IndexPage({ data }) {
-  console.log(data)
+  // console.log(data)
 
   return (
     <Layout>
@@ -21,7 +21,7 @@ export default function IndexPage({ data }) {
       {data.getAllMyList.edges.map((section, index) => {
         const { category } = section.node
 
-        console.log(data.traditionImageQuery)
+        // console.log(data.traditionImageQuery)
 
         let categoryImage = ""
         let categoryBackground = ""
@@ -43,7 +43,7 @@ export default function IndexPage({ data }) {
             categoryImage = data.tableImageQuery
             backgroundColor = "000000"
             break
-          case "multifunction":
+          case "multifonction":
             categoryBackground = multifunctionBackground
             categoryImage = data.multifunctionImageQuery
             backgroundColor = "000000"
@@ -55,7 +55,13 @@ export default function IndexPage({ data }) {
         return (
           <IndexSection
             key={index}
-            props={{ section, index, categoryBackground, categoryImage }}
+            props={{
+              section,
+              index,
+              categoryBackground,
+              categoryImage,
+              backgroundColor,
+            }}
           />
         )
       })}
@@ -114,7 +120,7 @@ export const listHomeQuery = graphql`
       }
     }
 
-    multifunctionImageQuery: file(relativePath: { eq: "multifunction.jpg" }) {
+    multifunctionImageQuery: file(relativePath: { eq: "multifonction.jpg" }) {
       childImageSharp {
         fluid {
           ...GatsbyImageSharpFluid

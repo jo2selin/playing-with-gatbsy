@@ -1,15 +1,17 @@
 import React from "react"
+import { graphql } from "gatsby"
 
 import Layout from "../components/layout"
+import SEO from "../components/seo"
 import ProductCardComponent from "../components/productCard"
 
 const templateListArticlesByTag = ({ data, pageContext }) => {
   const products = pageContext.products
 
-  console.log(data)
-  console.log(pageContext)
+  // console.log(data)
+  // console.log(pageContext)
 
-  products.map(product => {
+  products.forEach(product => {
     const productPath = product.fileAbsolutePath.split("/").slice(-2, -1)[0]
 
     function addImageToProduct(prod) {
@@ -24,17 +26,21 @@ const templateListArticlesByTag = ({ data, pageContext }) => {
 
   return (
     <Layout>
+      <SEO
+        title={`Opinel recherche ${pageContext.tag}`}
+        keywords={["opinel", "recherche"]}
+      />
       <section className="section">
         <div className="container">
           <h1 className="title">
-            <div class="control">
-              <div class="tags has-addons">
-                <span class="tag  is-large is-dark">Tous les Opinels</span>
-                <span class="tag  is-large">{pageContext.tag}</span>
+            <div className="control">
+              <div className="tags has-addons">
+                <span className="tag  is-large is-dark">Les Opinels</span>
+                <span className="tag  is-large">{pageContext.tag}</span>
               </div>
             </div>
           </h1>
-          <div className="columns">
+          <div className="columns is-multiline">
             {products.map((product, index) => {
               const article = product.frontmatter
 

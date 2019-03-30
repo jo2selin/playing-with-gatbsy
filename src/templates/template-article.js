@@ -4,14 +4,12 @@ import Img from "gatsby-image"
 import { FaAmazon } from "react-icons/fa"
 
 import Layout from "../components/layout"
+import SEO from "../components/seo"
 import ProductTagsComponent from "../components/productTags"
 
 export default function Template({ data }) {
   const article = data.getArticle
   const { title, subtitle, category, type, tags, amazon } = article.frontmatter
-
-  // console.log("Article data")
-  // console.log(data)
 
   // matching image article
   const allImages = data.getAllImages.sourceInstanceName
@@ -19,19 +17,17 @@ export default function Template({ data }) {
     .split("/")
     .slice(-2, -1)[0]
 
-  allImages.filter(prod => {
+  allImages.forEach(prod => {
     const imagePath = prod.node.relativePath.split("/")[0]
     if (imagePath === productPath) {
-      // console.log(`Pushing ${imagePath} to product`)
       article.correspondingImages = prod.node
-      return true
     }
   })
 
   // Listing all categories from Products Markdown
   const allCategoriesFromMarkdown = []
-  data.getAllCollections.edges.map(allProducts => {
-    Object.values(allProducts.node.frontmatter).map(type => {
+  data.getAllCollections.edges.forEach(allProducts => {
+    Object.values(allProducts.node.frontmatter).forEach(type => {
       if (!allCategoriesFromMarkdown.includes(type)) {
         allCategoriesFromMarkdown.push(type)
       }
@@ -40,6 +36,7 @@ export default function Template({ data }) {
 
   return (
     <Layout>
+      <SEO title={title} keywords={tags} description={subtitle} />
       <section className="section">
         <div className="columns">
           <div className="column is-one-third">
@@ -55,7 +52,6 @@ export default function Template({ data }) {
                 <hr />
                 <a
                   href={`https://amzn.to/${amazon}`}
-                  target="_blank"
                   className="button"
                   style={{ background: "#ff9900", borderColor: "#b36c01" }}
                 >
@@ -72,9 +68,9 @@ export default function Template({ data }) {
           <div className="column is-one-fifth">
             <h2 className="title is-5">Découvrez les collections : </h2>
             <div className="tags">
-              {allCategoriesFromMarkdown.map(category => {
+              {allCategoriesFromMarkdown.map((category, index) => {
                 return (
-                  <span className="tag is-dark">
+                  <span key={index} className="tag is-dark">
                     <Link to={`/tags/${category}`} style={{ color: "white" }}>
                       {category}
                     </Link>
