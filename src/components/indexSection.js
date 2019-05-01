@@ -12,75 +12,101 @@ const IndexSection = function indexsection(data) {
   // console.log(section)
 
   return (
-    <section
-      key={index}
-      className={homePageCss.sectionBackground}
-      style={{
-        backgroundColor: `rgb(${layout.background.color})`,
-        backgroundRepeat: "no-repeat",
-        backgroundPosition: `${layout.background.position}`,
-        backgroundImage: `url(${categoryBackground})`,
-      }}
-    >
-      <div className="container">
-        <Tilt
-          className="Tilt"
-          options={{ scale: 1.05, max: 25 }}
-          style={{
-            transform: "perspective(1000px)",
-            transformStyle: "preserve-3d",
-          }}
-        >
-          <div
-            className={
-              "columns is-vcentered Tilt-inner " + homePageCss.sectionColumns
-            }
+    <>
+      <section
+        key={index}
+        className={`${homePageCss.sectionBackground} is-hidden-mobile`}
+        style={{
+          backgroundColor: `rgb(${layout.background.color})`,
+          backgroundRepeat: "no-repeat",
+          backgroundPosition: `${layout.background.position}`,
+          backgroundImage: `url(${categoryBackground})`,
+        }}
+      >
+        <div className="container">
+          <Tilt
+            className="Tilt"
+            options={{ scale: 1.05, max: 25 }}
+            style={{
+              transform: "perspective(1000px)",
+              transformStyle: "preserve-3d",
+            }}
           >
             <div
               className={
-                "column is-one-third " + homePageCss.sectionColumnImage
+                "columns is-vcentered Tilt-inner " + homePageCss.sectionColumns
               }
             >
-              <Link to={`tags/${category}`}>
-                <Img sizes={categoryImage.childImageSharp.fluid} />
-              </Link>
+              <div
+                className={
+                  "column is-one-third " + homePageCss.sectionColumnImage
+                }
+              >
+                <Link to={`tags/${category}`}>
+                  <Img sizes={categoryImage.childImageSharp.fluid} />
+                </Link>
+              </div>
+              <div className={"column " + homePageCss.sectionColumnDescription}>
+                <Link to={`tags/${category}`}>
+                  <div className={homePageCss.titles}>
+                    <h4
+                      className={"subtitle " + homePageCss.sectionSubtitle}
+                      style={{
+                        color: `#${layout.subtitle.text}`,
+                        background: `#${layout.subtitle.background}`,
+                      }}
+                    >
+                      {title}
+                    </h4>
+                    <h1
+                      className={"title " + homePageCss.sectionTitle}
+                      style={{
+                        color: `#${layout.title.text}`,
+                        background: `rgba(${layout.title.background}, 0.8)`,
+                      }}
+                    >
+                      {subtitle}
+                    </h1>
+                    <p
+                      className={homePageCss.sectionParagraph}
+                      style={{
+                        color: `#${layout.title.text}`,
+                        background: `rgba(${layout.title.background}, 0.9)`,
+                      }}
+                      dangerouslySetInnerHTML={{ __html: text }}
+                    />
+                  </div>
+                </Link>
+              </div>
             </div>
-            <div className={"column " + homePageCss.sectionColumnDescription}>
-              <Link to={`tags/${category}`}>
-                <div className={homePageCss.titles}>
-                  <h4
-                    className={"subtitle " + homePageCss.sectionSubtitle}
-                    style={{
-                      color: `#${layout.subtitle.text}`,
-                      background: `#${layout.subtitle.background}`,
-                    }}
-                  >
-                    {title}
+          </Tilt>
+        </div>
+      </section>
+      <section className="is-hidden-tablet">
+        <Link to={`tags/${category}`}>
+          <div className="card">
+            <div className="card-image">
+              <figure className="image is-4by3">
+                <Img sizes={categoryImage.childImageSharp.fluid} />
+              </figure>
+            </div>
+            <div className="card-content">
+              <div className="media">
+                <div className="media-content">
+                  <h4 className="title is-4">
+                    {title} {subtitle}
                   </h4>
-                  <h1
-                    className={"title " + homePageCss.sectionTitle}
-                    style={{
-                      color: `#${layout.title.text}`,
-                      background: `rgba(${layout.title.background}, 0.8)`,
-                    }}
-                  >
-                    {subtitle}
-                  </h1>
-                  <p
-                    className={homePageCss.sectionParagraph}
-                    style={{
-                      color: `#${layout.title.text}`,
-                      background: `rgba(${layout.title.background}, 0.9)`,
-                    }}
-                    dangerouslySetInnerHTML={{ __html: text }}
-                  />
                 </div>
-              </Link>
+              </div>
+
+              <div className="content">
+                <p dangerouslySetInnerHTML={{ __html: text }} />
+              </div>
             </div>
           </div>
-        </Tilt>
-      </div>
-    </section>
+        </Link>
+      </section>
+    </>
   )
 }
 

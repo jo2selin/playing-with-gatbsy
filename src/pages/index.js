@@ -18,6 +18,22 @@ export default function IndexPage({ data }) {
     <Layout>
       <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
 
+      <div className="notification is-info">
+        <p>
+          J'ai réalisé ce site ayant pour unique objectif, de créer un site
+          ultra rapide et facilement éditable grâce à Gatsby.js.
+          <br />
+          Le design ou la naviagtion entre les pages n'a pas été
+          particulièrement important.
+        </p>
+        <br />
+        <p>
+          <b>Gatsby a généré une soixantaine de pages statiques</b> en quelques
+          secondes (dont 14 pages articles), ce qui permet la navigation entre
+          les Tags sans délais (pas de requête serveur)
+        </p>
+      </div>
+
       {data.getAllMyList.edges.map((section, index) => {
         const { category } = section.node
 
